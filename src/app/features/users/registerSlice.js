@@ -10,9 +10,6 @@ const initialState = {
 export const registerSlice = createSlice({
     name: 'users',
     initialState,
-    reducers: {
-
-    },
     extraReducers: {
         [register.pending]: (state) => {
             state.loading = true

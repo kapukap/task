@@ -6,7 +6,7 @@ import classnames from "classnames";
 const Message = ({children}) => {
     let messageClass = classnames({
         [classes.message]: true,
-        [classes['message--danger']]: true,
+        [classes['message--danger']]: true
     })
 
     return <Heading className={messageClass}>{children}</Heading>

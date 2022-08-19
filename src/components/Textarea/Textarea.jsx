@@ -4,7 +4,7 @@ import Text from "../Text/Text";
 import classnames from "classnames";
 
 
-const Textarea = ({type, placeholder='Upload your photo', error = '', onChange = null, fileName = ''}) => {
+const Textarea = ({placeholder = 'Upload your photo', error = '', onChange, fileName = ''}) => {
     let messageClass = classnames({
         [classes.file__message]: true,
         [classes['file__message--danger']]: error
@@ -25,7 +25,7 @@ const Textarea = ({type, placeholder='Upload your photo', error = '', onChange =
             <input className={classes.file__input} type="file" name="file" id="file" onChange={onChange}/>
             <label className={classes.file__label} htmlFor="file">
                 <span className={buttonClass}>Upload</span>
-                <textarea className={fileClass} placeholder={placeholder} rows="1" defaultValue={fileName}></textarea>
+                <textarea className={fileClass} placeholder={placeholder} rows="1" defaultValue={fileName}/>
             </label>
             {error && <Text className={messageClass}>{error}</Text>}
         </div>

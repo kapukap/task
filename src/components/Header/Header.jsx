@@ -5,7 +5,6 @@ import classnames from "classnames";
 
 
 const Header = ({type}) => {
-    // console.log(type)
     const headerClass = classnames({
         [classes.header]: true,
         [classes['header--desktop']]: type === 'desktop',
@@ -15,18 +14,15 @@ const Header = ({type}) => {
     })
 
 
-    switch (type) {
-        default: return (
-            <div className={headerClass}>
-                <a className={classes.header__logo} href="#"></a>
-                <div className={classes.header__auth}>
-                    <Button className={classes.header__user}>Users</Button>
-                    <Button className={classes.header__signUp}>Sign up</Button>
-                </div>
+    return (
+        <div className={headerClass}>
+            <a className={classes.header__logo} href="#"/>
+            <div className={classes.header__auth}>
+                <Button className={classes.header__user}>Users</Button>
+                <Button className={classes.header__signUp}>Sign up</Button>
             </div>
-        )
-    }
-
+        </div>
+    )
 };
 
 export default Header;

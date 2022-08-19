@@ -1,6 +1,7 @@
 @import "./src/Theme/vars";
 
 .card {
+    position: relative;
     padding: 20px;
     border-radius: 10px;
     background-color: white;
@@ -67,5 +68,3 @@
         width: 288px;
     }
 }
-
-

@@ -9,7 +9,6 @@ import {getUsers} from "../../app/features/users/actions";
 import Message from "../../components/Message/Message";
 import {showNextPage} from "../../app/features/users/usersSlice";
 
-
 const GetSection = () => {
     const dispatch = useDispatch()
     const usersList = useSelector(state => state.usersList)
@@ -45,7 +44,9 @@ const GetSection = () => {
                             )
                 }
 
-                {currentPage < totalPages && <Button className={classes.section__more} onClick={showMoreHandler}>Show more</Button>}
+                {currentPage < totalPages && (
+                    <Button className={classes.section__more} onClick={showMoreHandler}>Show more</Button>
+                )}
             </div>
         </section>
     );
