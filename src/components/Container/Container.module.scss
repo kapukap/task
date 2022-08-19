@@ -3,7 +3,7 @@
 .container {
     margin: 0 auto;
     max-width: $desktopWidthContainer;
-    //padding: 0 15px;
+
     &--laptop {
         max-width: $laptopWidthContainer;
     }

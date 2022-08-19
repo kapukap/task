@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit'
+import {configureStore} from '@reduxjs/toolkit'
 import usersListReducer from './features/users/usersSlice'
 import registerReducer from "./features/users/registerSlice";
 import positionsListReducer from './features/positions/positionsSlice'
