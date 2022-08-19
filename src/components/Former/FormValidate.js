@@ -31,7 +31,7 @@ export const validate = values => {
         errors.position = 'User`s position id. You can get list of all positions with their IDs using the API method GET api/v1/positions';
     }
 
-    if (!values.file || !values.file.type || !values.file.type.search(/(jpeg|jpg)/g) || values.file.size > megabytesToBytes(5)) {
+    if (!values.file || !values.file.type || (!/(jpeg|jpg)/g.test(values.file.type)) || values.file.size > megabytesToBytes(5)) {
         errors.file = 'Minimum size of photo 70x70px. The photo format must be jpeg/jpg type. The photo size must not be greater than 5 Mb.';
     }
 
