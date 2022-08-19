@@ -1,0 +1,58 @@
+@import "./src/Theme/vars";
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("../../img/cornfield-min.jpg");
+    background-repeat: no-repeat;
+    color: $white;
+    text-align: center;
+    background-position: center;
+    padding: 164px 395px 163px;
+    background-size: 1170px 650px;
+
+    &__wrapper {
+        width: 380px;
+    }
+
+    &__title {
+        margin: 0;
+    }
+
+    &__desc {
+        margin: 21px 0 32px
+    }
+
+    &__signUp {
+        padding: 4px 22px 4px 23px;
+    }
+}
+
+// laptop
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .info {
+        padding: 164px 322px 163px;
+        background-size: cover;
+    }
+}
+
+// tablet
+@media screen and (min-width: 361px) and (max-width: 768px) {
+    .info {
+        padding: 89px 194px 88px;
+        background-size: 100vw 500px;
+    }
+}
+
+// mobile
+@media screen and (max-width: 425px) {
+    .info {
+        padding: 40px 16px 71px;
+        background-size: 100vw 500px;
+
+        &__wrapper {
+            width: 328px;
+        }
+    }
+}

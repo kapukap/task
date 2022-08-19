@@ -1,0 +1,48 @@
+@import "./src/Theme/vars";
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 13px 15px;
+
+    &--desktop {
+        max-width: $desktopWidthContainer;
+    }
+
+    &--laptop {
+        max-width: $laptopWidthContainer;
+    }
+
+    &--tablet {
+        max-width: $tabletWidthContainer;
+    }
+
+    &--mobile {
+        max-width: $mobileWidthContainer;
+    }
+
+    &__logo {
+        display: block;
+        width: 104px;
+        height: 26px;
+        background-image: url("./../../img/logo.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    &__auth {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    &__user {
+        padding: 4px 29px !important;
+    }
+
+    &__signUp {
+        padding: 4px 22px 4px 23px !important;
+    }
+}

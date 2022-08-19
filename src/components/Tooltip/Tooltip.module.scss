@@ -1,0 +1,32 @@
+@import "./src/Theme/vars";
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.tooltip .tooltipText {
+    visibility: hidden;
+    width: 244px;
+    color: #fff;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.87);
+    border-radius: 4px;
+    padding: 3px 16px;
+    font-size: 16px;
+    line-height: 26px;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 33.3%;
+    margin-top: 21px;
+}
+
+.tooltip:hover .tooltipText {
+    visibility: visible;
+}

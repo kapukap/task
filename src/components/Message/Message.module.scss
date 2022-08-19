@@ -1,0 +1,9 @@
+@import "./src/Theme/vars";
+
+.message {
+    margin: 50px 0;
+
+    &--danger {
+        color: $error;
+    }
+}

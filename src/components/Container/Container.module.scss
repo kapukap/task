@@ -1,0 +1,18 @@
+@import "./src/Theme/vars";
+
+.container {
+    margin: 0 auto;
+    max-width: $desktopWidthContainer;
+    //padding: 0 15px;
+    &--laptop {
+        max-width: $laptopWidthContainer;
+    }
+
+    &--tablet {
+        max-width: $tabletWidthContainer;
+    }
+
+    &--mobile {
+        max-width: $mobileWidthContainer;
+    }
+}

@@ -1,0 +1,76 @@
+@import "./src/Theme/vars";
+
+.file {
+    width: 380px;
+
+    &__input {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+
+    &__label {
+        display: flex;
+        width: inherit;
+    }
+
+    &__button, &__name {
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    &__button {
+        text-align: center;
+        border: 1px solid;
+        padding: 13px 15px 13px 14px;
+        border-radius: 4px 0 0 4px;
+        cursor: pointer;
+
+        &--danger {
+            border: 1px solid $error;
+        }
+    }
+
+    &__name {
+        margin: 0;
+        width: 100%;
+        background-color: transparent;
+        border: 1px solid #D0CFCF;
+        border-left: none;
+        outline: none;
+        align-items: stretch;
+        padding: 13px 5px 13px 16px;
+        border-radius: 0 4px 4px 0;
+        resize: none;
+
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        cursor: pointer;
+        display: inline-block;
+        overflow: hidden;
+
+        &--danger {
+            border: 1px solid $error;
+        }
+    }
+
+    &__message {
+        font-size: 12px;
+        line-height: 14px;
+        margin: 4px 0 0 16px;
+
+        &--danger {
+            color: $error
+        }
+    }
+}
+
+// mobile
+@media screen and (max-width: 425px) {
+    .file {
+        width: 328px;
+    }
+}

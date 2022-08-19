@@ -1,0 +1,14 @@
+@import "./src/Theme/vars";
+
+.imageContainer {
+    width: 70px;
+    height: 70px;
+}
+
+.image {
+    width: 100%;
+
+    &--rounded {
+        border-radius: 50%;
+    }
+}

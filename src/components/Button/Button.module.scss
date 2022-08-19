@@ -1,0 +1,24 @@
+@import "./src/Theme/vars";
+
+.button {
+    font-size: 16px;
+    line-height: 26px;
+    padding: 4px 23px;
+    border: none;
+    border-radius: 80px;
+    cursor: pointer;
+
+    &--primary {
+        background-color: $primary;
+
+        &:hover {
+            background-color: #FFE302;
+        }
+    }
+
+    &--disabled {
+        color: white;
+        background-color: #B4B4B4;
+    }
+}
+
