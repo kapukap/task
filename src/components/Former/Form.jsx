@@ -12,7 +12,7 @@ import {getPositions} from "../../app/features/positions/actions";
 import Message from "../Message/Message";
 import {FastField, Formik, Form} from 'formik';
 import {validate} from "./FormValidate"
-import {register} from "../../app/features/users/actions";
+import {getUsers, register} from "../../app/features/users/actions";
 import {resetUsers} from "../../app/features/users/usersSlice";
 import classnames from "classnames";
 import Image from "../Image/Image";
@@ -24,6 +24,8 @@ const Former = ({title}) => {
     const {loading, error, success} = registerUser
     const positionsList = useSelector(state => state.positionsList)
     const {positions, loading: loadingPositions, error: errorPositions} = positionsList
+    const usersList = useSelector(state => state.usersList)
+    const {currentPage} = usersList
 
     useEffect(() => {
         if (!positions.length) {
@@ -33,7 +35,12 @@ const Former = ({title}) => {
 
     useEffect(() => {
         if (success) {
-            dispatch(resetUsers())
+            if (currentPage > 1) {
+                dispatch(resetUsers())
+            } else {
+                dispatch(resetUsers())
+                dispatch(getUsers({currentPage: 1}))
+            }
         }
     }, [dispatch, success])
 
