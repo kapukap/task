@@ -10,11 +10,9 @@ const Container = ({type, children}) => {
         [classes['container--mobile']]: type === 'mobile',
     })
 
-    switch (type) {
-        case 'laptop':
-            return <div className={containerClass}>{children}</div>
-        default: return <div className={containerClass}>{children}</div>
-    }
+    return (
+        <div className={containerClass}>{children}</div>
+    )
 };
 
 export default Container;

@@ -27,14 +27,15 @@ const Input = ({type, label = 'Label', error = '', info = '', className, name, v
             return (
                 <label className={radio.container}>{label}
                     <input type="radio" name={name} onChange={onChange} defaultValue={value} checked={isChecked}/>
-                    <span className={radio.checkmark}></span>
+                    <span className={radio.checkmark}/>
                 </label>
             )
         default:
             return (
                 <>
                     <div className={classnames({[classes.block]: true}, className)}>
-                        <input className={inputClass} onChange={onChange} defaultValue={value} name={name} id="normal-input" type="text"/>
+                        <input className={inputClass} onChange={onChange} defaultValue={value} name={name}
+                               id="normal-input" type="text"/>
                         <label className={labelClass} htmlFor="normal-input">{label}</label>
                         {(info && !error) && <Text className={messageClass}>{info}</Text>}
                         {error && <Text className={messageClass}>{error}</Text>}

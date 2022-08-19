@@ -1,12 +1,31 @@
-import React from 'react';
+import React, {useRef, useState} from "react";
 import classes from "./Tooltip.module.scss";
+import classnames from "classnames";
+import {useOverflow} from "../../hooks/useOverflow/useOverflow";
 
-const Tooltip = ({name, text = 'some text'}) => {
+const Tooltip = ({children, content, className}) => {
+    const [active, setActive] = useState(false);
+    const tooltipRef = useRef()
+    const isOverflow = useOverflow(tooltipRef);
+
+    let tooltipClass = classnames({
+        [classes['tooltip']]: true,
+        [classes['tooltip__wrapper']]: true
+    }, className);
+
     return (
-        <div className={classes.tooltip}>{name}
-            <span className={classes.tooltipText}>{text}</span>
+        <div
+            className={tooltipClass}
+            onMouseEnter={() => setActive(true)}
+            onMouseLeave={() => setActive(false)}
+            ref={tooltipRef}
+        >
+            {children}
+            {isOverflow && active && (
+                <div className={classes['tooltip--tip']}>{content}</div>
+            )}
         </div>
-    )
+    );
 };
 
 export default Tooltip;

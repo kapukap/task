@@ -9,7 +9,8 @@ const BG = ({variant, children}) => {
             return <div className={classes.blue}>{children}</div>
         case 'background':
             return <div className={classes.lightGrey}>{children}</div>
-        default: return <div className={classes.yellow}>{children}</div>
+        default:
+            return <div className={classes.yellow}>{children}</div>
     }
 };
 

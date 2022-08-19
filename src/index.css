@@ -1,23 +1,23 @@
 @font-face {
-  font-family: Nunito;
-  src: url("./Theme/fonts/Nunito/Nunito-Regular.ttf");
+    font-family: Nunito;
+    src: url("./Theme/fonts/Nunito/Nunito-Regular.ttf");
 }
 
 * {
-  font-family: Nunito, sans-serif;
-  font-weight: 400;
+    font-family: Nunito, sans-serif;
+    font-weight: 400;
 }
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
