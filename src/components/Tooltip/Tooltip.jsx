@@ -9,8 +9,8 @@ const Tooltip = ({children, content, className}) => {
     const isOverflow = useOverflow(tooltipRef);
 
     let tooltipClass = classnames({
-        [classes['tooltip']]: true,
-        [classes['tooltip__wrapper']]: true
+        [classes.tooltip]: true,
+        [classes.tooltip__wrapper]: isOverflow
     }, className);
 
     return (
