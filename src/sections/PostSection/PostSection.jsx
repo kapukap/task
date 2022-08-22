@@ -1,7 +1,6 @@
 import React from 'react';
 import classes from "./PostSection.module.scss";
-import Former from "../../components/Former/Form";
-
+import Former from "../../components/Former/Former";
 
 const PostSection = () => {
 

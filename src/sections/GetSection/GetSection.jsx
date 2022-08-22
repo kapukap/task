@@ -26,24 +26,19 @@ const GetSection = () => {
         <section className={classes.section}>
             <Heading>Working with GET request</Heading>
             <div className={classes.section__container}>
-                {
-                    loading
-                        ? <Preloader/>
-                        : error
-                            ? <Message>{error}</Message>
-                            : (
-                                <div className={classes.grid}>
-                                    {
-                                        users.map((user, i) => (
-                                            <Card key={i} name={user.name} email={user.email}
-                                                  post={user.position} phone={user.phone}
-                                                  imgLink={user.photo}/>
-                                        ))
-                                    }
-                                </div>
-                            )
-                }
-
+                {error && <Message>{error}</Message>}
+                {users && (
+                    <div className={classes.grid}>
+                        {
+                            users.map((user, i) => (
+                                <Card key={i} name={user.name} email={user.email}
+                                      post={user.position} phone={user.phone}
+                                      imgLink={user.photo}/>
+                            ))
+                        }
+                    </div>
+                )}
+                {loading && <Preloader/>}
                 {currentPage < totalPages && (
                     <Button className={classes.section__more} onClick={showMoreHandler}>Show more</Button>
                 )}
