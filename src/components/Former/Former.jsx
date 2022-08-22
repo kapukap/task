@@ -17,7 +17,6 @@ import {resetUsers} from "../../app/features/users/usersSlice";
 import classnames from "classnames";
 import Image from "../Image/Image";
 
-
 const Former = ({title}) => {
     const dispatch = useDispatch()
     const registerUser = useSelector(state => state.register)
@@ -62,7 +61,7 @@ const Former = ({title}) => {
                                 email: '',
                                 phone: '',
                                 position: null,
-                                file: null
+                                file: ''
                             }}
                             validate={validate}
                             onSubmit={(values, {resetForm}) => {
@@ -73,47 +72,45 @@ const Former = ({title}) => {
                                     position_id: values.position,
                                     photo: values.file
                                 }))
-                                resetForm({values: ''})
+                                resetForm()
                             }}
                         >
-                            {(formik) => (
+                            {({values, errors}) => (
                                 <Form className={classes.form}>
                                     <FastField name="name">
-                                        {({field, form, meta}) => (
-                                            <Input
-                                                className={classes.form__input}
-                                                name="name"
-                                                onChange={(e) => form.setFieldValue(field.name, e.target.value)}
-                                                value={field.value}
-                                                label={'Your name'}
-                                                error={form.errors.name}
-                                            />
+                                        {({field, meta}) => (
+                                            <>
+                                                <Input
+                                                    className={classes.form__input}
+                                                    {...field}
+                                                    label={'Your name'}
+                                                    error={meta.touched && meta.error}
+                                                />
+                                            </>
                                         )}
                                     </FastField>
 
 
                                     <FastField name="email">
-                                        {({field, form, meta}) => (
-                                            <Input
-                                                className={classes.form__input}
-                                                name="email"
-                                                onChange={(e) => form.setFieldValue(field.name, e.target.value)}
-                                                value={field.value}
-                                                label={'Email'}
-                                                error={form.errors.email}
-                                            />
+                                        {({field, meta}) => (
+                                            <>
+                                                <Input
+                                                    className={classes.form__input}
+                                                    {...field}
+                                                    label={'Email'}
+                                                    error={meta.touched && meta.error}
+                                                />
+                                            </>
                                         )}
                                     </FastField>
 
                                     <FastField name="phone">
-                                        {({field, form, meta}) => (
+                                        {({field, meta}) => (
                                             <Input
                                                 className={classes.form__input}
-                                                name="phone"
-                                                onChange={(e) => form.setFieldValue(field.name, e.target.value)}
-                                                value={field.value}
+                                                {...field}
                                                 label={'Phone'}
-                                                error={form.errors.phone}
+                                                error={meta.touched && meta.error}
                                                 info={'+38 (XXX) XXX - XX - XX'}
                                             />
                                         )}
@@ -130,25 +127,20 @@ const Former = ({title}) => {
                                                                 <div>
                                                                     <Text className={classes.form__subtitle}>
                                                                         Select your position
-                                                                        {form.errors.position && (
-                                                                            <span className={
-                                                                                classnames({
-                                                                                    [classes.form__message]: true,
-                                                                                    [classes['form__message--danger']]: form.errors.position
-                                                                                })}>
-                                                                        {form.errors.position}
-                                                                    </span>)
+                                                                        {meta.touched && meta.error && (
+                                                                            <Message type={'validationInlineError'}>
+                                                                                {form.errors.position}
+                                                                            </Message>)
                                                                         }
                                                                     </Text>
-                                                                    {positions.map(({id, name, value}) => (
+                                                                    {positions.map(({id, name}) => (
                                                                         <Input
                                                                             checkedValue={field.value}
+                                                                            {...field}
                                                                             key={id}
                                                                             label={name}
-                                                                            name={'position'}
-                                                                            type={'radio'}
                                                                             value={id}
-                                                                            onChange={(e) => form.setFieldValue(field.name, e.target.value)}
+                                                                            type={'radio'}
                                                                         />
                                                                     ))}
                                                                 </div>
@@ -161,11 +153,11 @@ const Former = ({title}) => {
                                     <FastField name="file">
                                         {({field, form, meta}) => (
                                             <Textarea
-                                                error={form.errors.file}
-                                                fileName={form.values.file?.name}
+                                                error={meta.touched && meta.error}
+                                                fileName={field.value.name}
                                                 onChange={(e) => {
-                                                    form.handleChange(e)
-                                                    form.setFieldValue("file", e.target.files[0], true)
+                                                    form.setFieldTouched(field.name, true)
+                                                    form.setFieldValue(field.name, e.target?.files[0])
                                                 }}
                                             />
                                         )}
@@ -174,7 +166,7 @@ const Former = ({title}) => {
                                     <Button
                                         buttonType={'submit'}
                                         className={classes.form__submit}
-                                        type={'disabled'}>
+                                        type={(values.name && !Object.keys(errors).length) ? 'primary' : 'disabled'}>
                                         Sign up
                                     </Button>
                                 </Form>

@@ -26,4 +26,21 @@
         z-index: 100;
         white-space: nowrap;
     }
+
+    @media screen and (max-width: 860px) {
+        &--tip {
+            left: 0;
+            transform: translateX(0%);
+            white-space: break-spaces;
+            max-width: 304px;
+            word-break: break-word;
+        }
+    }
+
+    // mobile
+    @media screen and (max-width: 425px) {
+        &--tip {
+            max-width: 288px;
+        }
+    }
 }
