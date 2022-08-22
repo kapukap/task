@@ -26,7 +26,7 @@ const Input = ({type, label = 'Label', error = '', info = '', className, name, v
 
             return (
                 <label className={radio.container}>{label}
-                    <input type="radio" name={name} onChange={onChange} defaultValue={value} checked={isChecked}/>
+                    <input type="radio" name={name} onChange={onChange} value={value} checked={isChecked}/>
                     <span className={radio.checkmark}/>
                 </label>
             )
@@ -34,7 +34,7 @@ const Input = ({type, label = 'Label', error = '', info = '', className, name, v
             return (
                 <>
                     <div className={classnames({[classes.block]: true}, className)}>
-                        <input className={inputClass} onChange={onChange} defaultValue={value} name={name}
+                        <input className={inputClass} onChange={onChange} value={value} name={name}
                                id="normal-input" type="text"/>
                         <label className={labelClass} htmlFor="normal-input">{label}</label>
                         {(info && !error) && <Text className={messageClass}>{info}</Text>}
