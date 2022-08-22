@@ -1,10 +1,10 @@
 import React from 'react';
 import classes from './Input.module.scss'
 import radio from './Radio.module.scss'
-import Text from "../Text/Text";
 import classnames from "classnames";
+import Message from "../Message/Message";
 
-const Input = ({type, label = 'Label', error = '', info = '', className, name, value = '', onChange = null, checkedValue = 0}) => {
+const Input = ({type, label = 'Label', error = '', info = '', className, name, value = '', onChange = null, checkedValue = 0, onBlur}) => {
     let inputClass = classnames({
         [classes.input]: true,
         [classes['input--danger']]: error,
@@ -13,11 +13,6 @@ const Input = ({type, label = 'Label', error = '', info = '', className, name, v
         [classes.label]: true,
         [classes.filled]: value,
         [classes['label--danger']]: error
-    })
-    let messageClass = classnames({
-        [classes.message]: true,
-        [classes['message--danger']]: error,
-        [classes['message--info']]: info
     })
 
     switch (type) {
@@ -34,11 +29,11 @@ const Input = ({type, label = 'Label', error = '', info = '', className, name, v
             return (
                 <>
                     <div className={classnames({[classes.block]: true}, className)}>
-                        <input className={inputClass} onChange={onChange} value={value} name={name}
+                        <input className={inputClass} onChange={onChange} onBlur={onBlur} value={value} name={name}
                                id="normal-input" type="text"/>
                         <label className={labelClass} htmlFor="normal-input">{label}</label>
-                        {(info && !error) && <Text className={messageClass}>{info}</Text>}
-                        {error && <Text className={messageClass}>{error}</Text>}
+                        {(info && !error) && <Message type={'validationInfo'}>{info}</Message>}
+                        {error && <Message type={'validationError'}>{error}</Message>}
                     </div>
                 </>
             )

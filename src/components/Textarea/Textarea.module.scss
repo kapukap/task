@@ -56,16 +56,6 @@
             border: 1px solid $error;
         }
     }
-
-    &__message {
-        font-size: 12px;
-        line-height: 14px;
-        margin: 4px 0 0 16px;
-
-        &--danger {
-            color: $error
-        }
-    }
 }
 
 // mobile
