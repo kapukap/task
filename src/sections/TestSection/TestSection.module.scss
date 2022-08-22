@@ -6,7 +6,6 @@
     align-items: center;
     background-image: url("../../img/cornfield-min.jpg");
     background-repeat: no-repeat;
-    color: $white;
     text-align: center;
     background-position: center;
     padding: 164px 395px 163px;
@@ -18,10 +17,12 @@
 
     &__title {
         margin: 0;
+        color: $white;
     }
 
     &__desc {
-        margin: 21px 0 32px
+        margin: 21px 0 32px;
+        color: $white;
     }
 
     &__signUp {
