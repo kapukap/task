@@ -17,10 +17,11 @@ export const register = createAsyncThunk(
     'users/register',
     async (user, {rejectWithValue}) => {
         try {
+            const {data} = await axi.get('token');
             const config = {
                 headers: {
                     "Content-Type": "multipart/form-data",
-                    Token: process.env.REACT_APP_TOKEN
+                    Token: data.token
                 }
             }
             await axi.post(`users`, user, config)

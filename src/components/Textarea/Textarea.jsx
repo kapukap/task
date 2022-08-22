@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import classes from './Textarea.module.scss'
 import Text from "../Text/Text";
 import classnames from "classnames";
@@ -25,7 +25,7 @@ const Textarea = ({placeholder = 'Upload your photo', error = '', onChange, file
             <input className={classes.file__input} type="file" name="file" id="file" onChange={onChange}/>
             <label className={classes.file__label} htmlFor="file">
                 <span className={buttonClass}>Upload</span>
-                <textarea className={fileClass} placeholder={placeholder} rows="1" defaultValue={fileName}/>
+                <textarea className={fileClass} placeholder={placeholder} rows="1" readOnly={true} defaultValue={fileName}/>
             </label>
             {error && <Text className={messageClass}>{error}</Text>}
         </div>
